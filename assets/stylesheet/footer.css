@@ -1,0 +1,23 @@
+.footer {
+  text-align: center;
+  padding: 2.834rem 0;
+  background-color: var(--faded);
+  font-size: 1rem;
+}
+.footer nav {
+  margin-top: 1rem;
+}
+.footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+.footer li::after {
+  content: "|";
+  display: inline-block;
+  margin-left: 0.8rem;
+}
+.footer li:last-child::after {
+  display: none;
+}

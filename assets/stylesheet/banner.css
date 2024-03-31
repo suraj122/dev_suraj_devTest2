@@ -8,7 +8,6 @@
 }
 .banner p {
   color: rgba(255, 255, 255, 0.8);
-  line-height: 1.7;
 }
 .contact-form {
   margin-top: 1.2rem;
@@ -20,7 +19,8 @@
   color: white;
   margin-bottom: 3rem;
 }
-.contact-form input {
+.contact-form input,
+.contact-form select {
   display: block;
   width: 100%;
   padding: 1.67rem 1.34rem;
@@ -31,10 +31,56 @@
   border: 1px solid rgba(255, 255, 255, 0.7);
   color: rgba(255, 255, 255, 0.7);
   margin: 1rem 0;
+  font-size: 1.34rem;
 }
 .contact-form input:focus {
   border-color: white;
 }
 .contact-form input::placeholder {
   color: rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (min-width: 768px) {
+  .banner .container {
+    padding: 0 8rem;
+  }
+  .banner > .grid {
+    align-items: center;
+    gap: 9rem;
+  }
+  .banner header {
+    grid-column: span 3;
+    text-align: left;
+    padding-right: 2rem;
+  }
+  .banner .contact {
+    grid-column: span 2;
+  }
+  .contact {
+    padding: 0 4rem;
+  }
+  .contact .grid {
+    gap: 1.34rem;
+  }
+  .contact-form input {
+    margin: 0;
+  }
+  .contact-form select {
+    margin-top: 1.34rem;
+  }
+  .banner .heading-secondary {
+    font-size: 2.34rem;
+  }
+  .contact-form {
+    padding: 4.67rem 2.34rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .contact {
+    padding: 0;
+  }
+  .banner .container {
+    padding: 0 1.5rem;
+  }
 }

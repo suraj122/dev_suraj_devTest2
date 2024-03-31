@@ -1,0 +1,24 @@
+.watch-video {
+  padding: 6.67rem 0 2rem 0;
+  background: linear-gradient(90deg, #305d52 1.26%, #153f38 100%);
+  color: #fff;
+}
+.video-guide-item h4 {
+  font-size: 1.67rem;
+  font-weight: 700;
+}
+.video-guide {
+  padding-left: 2rem;
+}
+.video-guide-item {
+  list-style-image: url(../media/icons/checkmark.svg);
+  padding-left: 0.5rem;
+  margin: 1rem 0;
+}
+.video-guide-item p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 0.67rem;
+}
+.watch-video footer img {
+  margin-top: 2rem;
+}

@@ -3,11 +3,12 @@
   font-family: "Montserrat", sans-serif;
   line-height: 1.5;
   font-style: normal;
-  --hightlight: #5bc8af;
+  --highlight: #5bc8af;
   --tip-bg: #297c6b;
   --gradient-bg: #194d44;
   --manin-text: #333333;
-  --faded: #333333;
+  --faded: #eaeaea;
+  --drop-shadow: 0px 10px 30px 0px #0000001f;
 }
 
 body {
@@ -15,6 +16,19 @@ body {
   line-height: 1.5;
   font-weight: 400;
   color: var(--manin-text);
+}
+a {
+  text-decoration: none;
+}
+strong {
+  font-weight: 700;
+}
+em {
+  font-style: italic;
+}
+p {
+  font-size: 1.167rem;
+  line-height: 1.71;
 }
 
 .container {
@@ -37,31 +51,114 @@ body {
   text-align: center;
 }
 
+.main-text {
+  margin: 3rem 0;
+}
+
 /* Headings */
+.heading {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2.67rem;
+}
 .heading-primary {
   font-size: 3rem;
-  line-height: 1.2;
-  font-weight: 700;
 }
 .heading-secondary {
   font-size: 2rem;
-  font-weight: 700;
+}
+.heading-tertiary {
+  font-size: 3rem;
 }
 .text-outline {
   color: transparent;
   -webkit-text-stroke: 1px white;
   background-clip: text;
 }
+.text-outline-secondary {
+  -webkit-text-stroke: 1px var(--manin-text);
+}
+
+/* Buttons */
+button {
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+.btn {
+  padding: 1.34rem 0;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.34rem;
+  font-weight: 700;
+  box-shadow: 0px 4px 6px 0px #00000014;
+}
+.btn-primary {
+  background-color: var(--highlight);
+  color: #fff;
+  margin-top: 3.4rem;
+}
+.btn-primary:focus {
+  background: #35bb9c;
+}
+.btn-primary span,
+.btn-secondary svg {
+  margin-left: 0.67rem;
+}
+.btn-secondary {
+  color: var(--highlight);
+  border: 2px solid var(--highlight);
+  margin-top: 2rem;
+}
 
 @media screen and (min-width: 768px) {
   .container {
     padding: 0 1.5rem;
   }
+  .grid {
+    display: grid;
+    gap: 2rem;
+  }
+  .md-col-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .heading-primary {
+    font-size: 5.34rem;
+  }
+  .main-text {
+    margin: 0;
+  }
 }
 @media screen and (min-width: 1024px) {
   .container {
-    max-width: 1184px;
+    max-width: 992px;
     margin: 0 auto;
     width: 100%;
+  }
+  .grid {
+    gap: 3rem;
+  }
+  .lg-col-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1184px;
+  }
+  .lg-col-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media screen and (min-width: 1500px) {
+  .container {
+    max-width: 1440px;
   }
 }
