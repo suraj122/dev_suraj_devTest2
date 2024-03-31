@@ -1,18 +1,4 @@
 @import url("reset.css");
-:root {
-  font-size: 16px;
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  line-height: 1.5;
-  font-style: normal;
-  --hightlight: #5bc8af;
-  --tip-bg: #297c6b;
-  --gradient-bg: #194d44;
-  --manin-text: #333333;
-  --faded: #333333;
-}
-
-body {
-  line-height: 1.5;
-}
+@import url("base.css");
+@import url("navbar.css");
+@import url("banner.css");
