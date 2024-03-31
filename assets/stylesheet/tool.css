@@ -1,6 +1,9 @@
 .tools {
   padding: 3rem 0 6.67rem 0;
 }
+.tool-list {
+  margin-top: 6.67rem;
+}
 .tool-item {
   width: 100%;
   height: 8rem;
@@ -61,4 +64,18 @@
 }
 .tool-item:hover .tool-item-info {
   display: inline-block;
+}
+
+@media screen and (min-width: 768px) {
+  .tool-list {
+    margin-top: 5rem;
+  }
+  .tool-item {
+    margin: 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .tool-list {
+    margin-top: 3rem;
+  }
 }

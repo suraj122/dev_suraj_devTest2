@@ -2,6 +2,12 @@
   padding: 3rem 0;
   margin-top: 2.167rem;
 }
+.gallery {
+  margin-bottom: 5.34rem;
+}
+.gallery img {
+  width: 100%;
+}
 .story-list {
   margin-top: 11.67rem;
 }
@@ -41,4 +47,21 @@ blockquote {
   align-items: center;
   gap: 3rem;
   margin-top: 5.34rem;
+}
+
+@media screen and (min-width: 768px) {
+  .gallery {
+    display: block;
+  }
+  /* .order-1 {
+    order: 1;
+  } */
+}
+@media screen and (min-width: 1024px) {
+  .gallery {
+    display: block;
+  }
+  .span-2 {
+    grid-column: span 2;
+  }
 }

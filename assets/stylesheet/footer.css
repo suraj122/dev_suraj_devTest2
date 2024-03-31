@@ -21,3 +21,12 @@
 .footer li:last-child::after {
   display: none;
 }
+@media screen and (min-width: 1024px) {
+  .footer .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer nav {
+    margin-top: 0;
+  }
+}

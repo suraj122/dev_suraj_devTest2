@@ -44,18 +44,6 @@
   .banner .container {
     padding: 0 8rem;
   }
-  .banner > .grid {
-    align-items: center;
-    gap: 9rem;
-  }
-  .banner header {
-    grid-column: span 3;
-    text-align: left;
-    padding-right: 2rem;
-  }
-  .banner .contact {
-    grid-column: span 2;
-  }
   .contact {
     padding: 0 4rem;
   }
@@ -76,11 +64,23 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
+  .banner .container {
+    padding: 0 1.5rem;
+  }
   .contact {
     padding: 0;
   }
-  .banner .container {
-    padding: 0 1.5rem;
+  .banner > .grid {
+    align-items: center;
+    gap: 9rem;
+  }
+  .banner header {
+    text-align: left;
+    grid-column: span 3;
+    padding-right: 4rem;
+  }
+  .banner .contact {
+    grid-column: span 2;
   }
 }
