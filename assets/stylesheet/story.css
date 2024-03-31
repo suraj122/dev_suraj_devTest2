@@ -1,15 +1,12 @@
-.story {
-  padding: 3rem 0;
-  margin-top: 2.167rem;
+.story-wrapper {
+  background-color: #f5f5f5;
+  padding: 1rem 0 10.84rem 0;
 }
 .gallery {
   margin-bottom: 5.34rem;
 }
 .gallery img {
   width: 100%;
-}
-.story-list {
-  margin-top: 11.67rem;
 }
 .story-item {
   background-color: var(--gradient-bg);
@@ -50,6 +47,9 @@ blockquote {
 }
 
 @media screen and (min-width: 768px) {
+  .story-wrapper {
+    padding: 2rem 0 6.84rem 0;
+  }
   .gallery {
     display: block;
   }
@@ -58,6 +58,9 @@ blockquote {
   } */
 }
 @media screen and (min-width: 1024px) {
+  .story-wrapper {
+    padding: 6.67rem 0 10.84rem 0;
+  }
   .gallery {
     display: block;
   }

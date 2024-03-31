@@ -1,6 +1,20 @@
 .banner {
-  background: linear-gradient(180deg, #194d41 0%, rgba(25, 77, 65, 0.7) 100%);
-  padding: 6.6rem 0 4.6rem 0;
+  background: linear-gradient(180deg, #194d41 0%, rgba(25, 77, 65, 0.7) 100%),
+    url(../media/cover.png);
+  background-size: cover;
+  padding: 6.6rem 0 12rem 0;
+  position: relative;
+}
+.banner-graphics {
+  height: 9.167rem;
+  width: 100%;
+  background: url(../media/banner-graphic.svg);
+  background-repeat: no-repeat;
+  /* background-position: 100% 100%; */
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
 }
 .banner .heading-primary {
   color: white;
@@ -64,10 +78,20 @@
   }
 }
 
+@media screen and (min-width: 1024px) {
+  .banner {
+    padding-bottom: 14rem;
+  }
+}
+
 @media screen and (min-width: 1200px) {
+  .banner {
+    padding: 6.67rem 0;
+  }
   .banner .container {
     padding: 0 1.5rem;
   }
+
   .contact {
     padding: 0;
   }
