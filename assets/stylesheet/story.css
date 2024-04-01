@@ -8,44 +8,6 @@
 .gallery img {
   width: 100%;
 }
-.story-item {
-  background-color: var(--gradient-bg);
-  color: #fff;
-  box-shadow: var(--drop-shadow);
-  border-radius: 1rem;
-  padding: 0 2.67rem 6rem 2.67rem;
-  position: relative;
-}
-.quote-icon {
-  position: absolute;
-  right: 2.67rem;
-  top: 6rem;
-}
-.story-author-avatar {
-  width: 15rem;
-  height: 15rem;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  box-shadow: var(--drop-shadow);
-  margin-top: -5rem;
-}
-.story-author {
-  font-size: 1.5rem;
-  display: block;
-  font-weight: 700;
-  margin-top: 2.167rem;
-}
-blockquote {
-  font-style: italic;
-}
-.story-navigation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  margin-top: 5.34rem;
-}
-
 @media screen and (min-width: 768px) {
   .story-wrapper {
     padding: 2rem 0 6.84rem 0;

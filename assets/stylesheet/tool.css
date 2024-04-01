@@ -1,5 +1,5 @@
 .tools {
-  padding: 8.34rem 0;
+  padding: 6.67rem 0;
 }
 .tool-list {
   margin-top: 6.67rem;
@@ -11,34 +11,34 @@
   border-radius: 4px;
   position: relative;
   margin: 1.34rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .tool-item a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 23.67rem;
-  height: 100%;
+  text-align: center;
+  width: 100%;
   color: var(--manin-text);
   font-size: 1.5rem;
   font-weight: 700;
   position: relative;
   text-align: center;
+  padding: 0 6rem;
 }
 
-.tool-item img {
-  display: none;
-  position: absolute;
-  left: 95%;
+.tool-item-info-icon {
+  font-size: 0.9rem;
+  display: inline-block;
+  width: 1.67rem;
+  height: 1.67rem;
+  border: 2px solid var(--highlight);
+  color: var(--highlight);
+  border-radius: 50%;
+  vertical-align: text-top;
+  visibility: hidden;
 }
 .tool-item:hover a {
   color: var(--highlight);
 }
-.tool-item:hover img {
-  color: var(--highlight);
-  display: inline-block;
+.tool-item:hover .tool-item-info-icon {
+  visibility: visible;
 }
 .tool-item-info {
   padding: 1rem 0.67rem;
@@ -67,6 +67,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .tools {
+    padding: 8.34rem 0;
+  }
   .tool-list {
     margin-top: 5rem;
   }

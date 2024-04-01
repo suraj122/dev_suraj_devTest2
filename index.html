@@ -13,6 +13,7 @@
     />
     <!-- CSS -->
     <link rel="stylesheet" href="assets/stylesheet/style.css" />
+    <script defer src="scripts/slider.js"></script>
   </head>
   <body>
     <!-- Navigation Bar -->
@@ -172,28 +173,41 @@
           </article>
         </div>
         <div class="story-list container">
-          <article class="story-item">
-            <img
-              class="quote-icon"
-              src="assets/media/icons/quote.svg"
-              alt="Quotation Icon"
-            />
-            <img
-              class="story-author-avatar"
-              src="assets/media/abbie.png"
-              alt="Abbie Harvey"
-            />
-            <cite class="story-author">Abbie Harvey</cite>
-            <blockquote>
-              <p>
-                I have been caring for my mom & dad off and on for about 10
-                years now, and I know the importance of me being there for
-                appointments. Older people need attention, love and care that
-                they truly deserve.
-              </p>
-            </blockquote>
+          <article class="slider-wrapper" id="slider-wrapper">
+            <ul class="slider-list" id="slider-list"></ul>
+            <div class="">
+              <button class="prev" id="prev">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M36.24 39.76L20.48 24L36.24 8.24L32 4L12 24L32 44L36.24 39.76Z"
+                    fill="#EAEAEA"
+                  />
+                </svg>
+              </button>
+              <button class="next" id="next">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.76 8.24L27.52 24L11.76 39.76L16 44L36 24L16 4L11.76 8.24Z"
+                    fill="#EAEAEA"
+                  />
+                </svg>
+              </button>
+            </div>
           </article>
-          <div class="story-navigation">
+
+          <div class="slider-navigation">
             <svg
               width="16"
               height="16"
@@ -201,7 +215,7 @@
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <circle cx="8" cy="8" r="8" fill="#EAEAEA" />
+              <circle id="0" cx="8" cy="8" r="8" fill="#EAEAEA" />
             </svg>
             <svg
               width="16"
@@ -210,7 +224,7 @@
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <circle cx="8" cy="8" r="8" fill="#EAEAEA" />
+              <circle id="1" cx="8" cy="8" r="8" fill="#EAEAEA" />
             </svg>
 
             <svg
@@ -220,7 +234,7 @@
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <circle cx="8" cy="8" r="8" fill="#EAEAEA" />
+              <circle id="2" cx="8" cy="8" r="8" fill="#EAEAEA" />
             </svg>
           </div>
         </div>
@@ -260,11 +274,11 @@
           </div>
 
           <ul class="tool-list grid md-col-2 lg-col-3">
-            <li class="tool-item">
+            <li class="tool-item center">
               <a href="#"
                 ><span>Needs Assesment</span>
-                <img src="assets/media/icons/info.svg" alt="Information Icon"
-              /></a>
+                <span class="tool-item-info-icon">i</span>
+              </a>
               <div class="tool-item-info">
                 <svg
                   width="22"
@@ -282,11 +296,11 @@
                 </p>
               </div>
             </li>
-            <li class="tool-item">
+            <li class="tool-item center">
               <a href="#"
                 ><span>Treatment Planning & Placement</span>
-                <img src="assets/media/icons/info.svg" alt="Information Icon"
-              /></a>
+                <span class="tool-item-info-icon">i</span>
+              </a>
               <div class="tool-item-info">
                 <svg
                   width="22"
@@ -304,11 +318,11 @@
                 </p>
               </div>
             </li>
-            <li class="tool-item">
+            <li class="tool-item center">
               <a href="#"
                 ><span>Transportation & Logistics</span>
-                <img src="assets/media/icons/info.svg" alt="Information Icon"
-              /></a>
+                <span class="tool-item-info-icon">i</span></a
+              >
               <div class="tool-item-info">
                 <svg
                   width="22"
@@ -326,11 +340,11 @@
                 </p>
               </div>
             </li>
-            <li class="tool-item">
+            <li class="tool-item center">
               <a href="#"
                 ><span>Insuarance Advocacy</span>
-                <img src="assets/media/icons/info.svg" alt="Information Icon"
-              /></a>
+                <span class="tool-item-info-icon">i</span></a
+              >
               <div class="tool-item-info">
                 <svg
                   width="22"
@@ -348,11 +362,11 @@
                 </p>
               </div>
             </li>
-            <li class="tool-item">
+            <li class="tool-item center">
               <a href="#"
                 ><span>Employment Advocacy</span>
-                <img src="assets/media/icons/info.svg" alt="Information Icon"
-              /></a>
+                <span class="tool-item-info-icon">i</span></a
+              >
               <div class="tool-item-info">
                 <svg
                   width="22"
@@ -370,11 +384,11 @@
                 </p>
               </div>
             </li>
-            <li class="tool-item">
+            <li class="tool-item center">
               <a href="#"
                 ><span>Aftercare Planning</span>
-                <img src="assets/media/icons/info.svg" alt="Information Icon"
-              /></a>
+                <span class="tool-item-info-icon">i</span></a
+              >
               <div class="tool-item-info">
                 <svg
                   width="22"
@@ -398,12 +412,12 @@
       <!-- Watch Video -->
       <section class="watch-video">
         <article class="container grid lg-col-2">
-          <div>
+          <div class="video-guide">
             <h3 class="heading heading-tertiary text-center">
               <span class="text-outline">WATCH</span>
               THE VIDEO
             </h3>
-            <ul class="video-guide">
+            <ul class="">
               <li class="video-guide-item">
                 <h4>Needs Assesment</h4>
                 <p>
@@ -428,10 +442,17 @@
               </li>
             </ul>
           </div>
-          <footer class="text-center">
-            <img src="assets/media/logo.svg" alt="Logo" />
-          </footer>
+          <div class="video-play center">
+            <button class="play-button center">
+              <div class="inner center">
+                <img src="assets/media/icons/play.svg" alt="Video Play Icon" />
+              </div>
+            </button>
+          </div>
         </article>
+        <footer class="text-center container">
+          <img src="assets/media/logo.svg" alt="Logo" />
+        </footer>
       </section>
     </main>
     <!-- footer -->

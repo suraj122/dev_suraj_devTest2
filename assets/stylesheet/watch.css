@@ -1,13 +1,16 @@
 .watch-video {
+  background: url("../media/sm-video-bg-cover.svg"),
+    url("../media/cover.png") 100% 100%;
+  background-size: cover;
   padding: 6.67rem 0 2rem 0;
-  background: linear-gradient(90deg, #305d52 1.26%, #153f38 100%);
+  background-repeat: no-repeat;
   color: #fff;
 }
 .video-guide-item h4 {
   font-size: 1.67rem;
   font-weight: 700;
 }
-.video-guide {
+.video-guide ul {
   padding-left: 2rem;
 }
 .video-guide-item {
@@ -23,6 +26,57 @@
 .watch-video footer img {
   margin-top: 2rem;
 }
+.video-play {
+  padding-bottom: 10rem;
+}
+.play-button {
+  width: 10.67rem;
+  height: 10.67rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  box-sizing: content-box;
+  cursor: pointer;
+}
+.play-button .inner {
+  cursor: pointer;
+  width: 8.212rem;
+  height: 8.212rem;
+  background: rgba(91, 200, 175, 0.8);
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.play-button:hover:before {
+  content: "";
+  width: 10.67rem;
+  height: 10.67rem;
+  position: absolute;
+  border-radius: 100%;
+  -webkit-animation: ripples 0.5s ease-in-out;
+  animation: ripples 0.3s ease-in-out;
+  box-sizing: content-box;
+}
+
+@-webkit-keyframes ripples {
+  0% {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    border: 0.8rem solid #dfdfdf;
+    opacity: 0;
+  }
+}
+
+@keyframes ripples {
+  0% {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    border: 0.8rem solid rgba(255, 255, 255, 0.3);
+    opacity: 0;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .video-guide-item h4 {
     font-size: 2rem;
@@ -32,7 +86,14 @@
   }
 }
 @media screen and (min-width: 1024px) {
+  .watch-video {
+    background: url("../media/video-bg-cover.svg"), url("../media/cover.png");
+    background-size: cover;
+  }
   .watch-video footer {
     text-align: right;
+  }
+  .video-play {
+    padding-bottom: 0;
   }
 }
