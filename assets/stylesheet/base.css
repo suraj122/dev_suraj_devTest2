@@ -125,6 +125,37 @@ button {
   align-items: center;
 }
 
+/* Embeded Video */
+.embeded-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9; /* 16:9 aspect ratio */
+}
+
+.embeded-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+/* Modal Styles*/
+.modal {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  display: none;
+}
+.modal-body {
+  max-width: 992px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     padding: 0 1.5rem;
@@ -155,6 +186,9 @@ button {
   .btn-secondary {
     margin-top: 3rem;
   }
+  .modal {
+    padding: 3rem 8rem;
+  }
 }
 @media screen and (min-width: 1024px) {
   .container {
@@ -175,6 +209,9 @@ button {
     text-align: left;
     margin-bottom: 4rem;
   }
+  .modal {
+    padding: 10rem 16rem;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -183,6 +220,9 @@ button {
   }
   .xl-col-5 {
     grid-template-columns: repeat(5, 1fr);
+  }
+  .modal {
+    padding: 10rem 20rem;
   }
 }
 @media screen and (min-width: 1500px) {
