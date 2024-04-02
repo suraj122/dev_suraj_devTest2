@@ -46,6 +46,10 @@
 .contact-number a {
   color: var(--highlight);
 }
+/* Thank You Navbar */
+.thank-you-navbar {
+  background-color: var(--gradient-bg);
+}
 
 @media screen and (min-width: 768px) {
   .navbar .container {
@@ -81,6 +85,9 @@
 @media screen and (min-width: 1024px) {
   .navbar-menu {
     display: flex;
+  }
+  .navbar-menu ul {
+    margin-bottom: 0;
   }
   .contact-number {
     margin-left: 4rem;

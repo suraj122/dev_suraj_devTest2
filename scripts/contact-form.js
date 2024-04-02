@@ -47,10 +47,10 @@ const showError = (input, message) => {
 
 const clearError = (input) => {
   const errorElement = input.nextElementSibling;
-  errorElement.style.display = "none";
-  errorElement.textContent = "";
-  input.classList.remove("invalid");
-  input.previousElementSibling.classList.remove("invalid-label");
+  //   errorElement.style.display = "none";
+  //   errorElement.textContent = "";
+  //   input.classList.remove("invalid");
+  //   input.previousElementSibling.classList.remove("invalid-label");
 };
 
 const validateForm = () => {
@@ -90,7 +90,6 @@ const validateForm = () => {
     countryListWrapper.classList.add("invalid");
     countryError.style.display = "inline-block";
     isValid = false;
-    console.log(countryError);
   } else {
     countryError.textContent = "";
     countryListWrapper.classList.remove("invalid");
@@ -103,7 +102,11 @@ const validateForm = () => {
 // Add focus and blur event listeners to input fields
 const addFocusBlurEvents = (input, label) => {
   input.addEventListener("focus", () => {
-    label.classList.add("focused-label");
+    const errorElement = document.querySelectorAll(".error-message");
+    errorElement.forEach((elm) => (elm.style.display = "none"));
+    if (label) {
+      label.classList.add("focused-label");
+    }
     input.style.color = "white";
   });
 
@@ -116,6 +119,10 @@ addFocusBlurEvents(firstName, firstName.previousElementSibling);
 addFocusBlurEvents(lastName, lastName.previousElementSibling);
 addFocusBlurEvents(email, email.previousElementSibling);
 addFocusBlurEvents(company, company.previousElementSibling);
+addFocusBlurEvents(
+  countryListWrapper,
+  countryListWrapper.previousElementSibling
+);
 
 countryListWrapper.addEventListener("change", () => {
   clearError(countryList);
@@ -125,7 +132,6 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   if (validateForm()) {
-    // Form submission logic
-    form.submit();
+    window.location.href = "thankYou.html";
   }
 });

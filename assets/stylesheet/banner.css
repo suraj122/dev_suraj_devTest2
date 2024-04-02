@@ -118,6 +118,33 @@
   z-index: 100000;
 }
 
+/* Thank You Banner */
+.thank-you-banner {
+  min-height: 100vh;
+  height: 100%;
+}
+.thank-you-banner .container {
+  max-width: 992px;
+}
+
+.thank-you-banner .text-outline {
+  -webkit-text-stroke: 1px var(--highlight);
+}
+.thank-you-banner .checkmark {
+  display: inline-flex;
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--highlight);
+  border-radius: 50%;
+  margin-bottom: 3rem;
+}
+
+.thank-you-banner .btn-primary {
+  display: inline-flex;
+  width: auto;
+  padding: 1.34rem 3rem;
+}
+
 @media screen and (min-width: 768px) {
   .banner {
     padding-top: 13rem;
@@ -148,6 +175,12 @@
 @media screen and (min-width: 1024px) {
   .banner {
     padding-bottom: 14rem;
+  }
+  .thank-you-banner .heading-primary {
+    font-size: 8rem;
+  }
+  .thank-you-banner p {
+    font-size: 1.67rem;
   }
 }
 
