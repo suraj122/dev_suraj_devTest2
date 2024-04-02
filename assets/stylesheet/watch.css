@@ -1,11 +1,10 @@
 .watch-video {
-  background: url("../media/sm-video-bg-cover.svg"),
-    url("../media/cover.png") 100% 100%;
-  background-size: cover;
-  padding: 6.67rem 0 2rem 0;
+  background-color: var(--tip-bg);
   background-repeat: no-repeat;
   color: #fff;
+  position: relative;
 }
+
 .video-guide-item h4 {
   font-size: 1.67rem;
   font-weight: 700;
@@ -23,11 +22,32 @@
   margin-top: 0.67rem;
   font-size: 1.167rem;
 }
-.watch-video footer img {
-  margin-top: 2rem;
+
+.watch-video footer {
+  position: absolute;
+  bottom: 3rem;
+  width: 100%;
 }
-.video-play {
-  padding-bottom: 10rem;
+.video-guide {
+  position: relative;
+  padding: 6.67rem 1.5rem 3rem 1.5rem;
+  background: linear-gradient(180deg, #305d52 1.26%, #153f38 100%);
+}
+.sm-video-graphic {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 99%;
+}
+.lg-video-graphic {
+  display: none;
+}
+.play-video {
+  padding: 2rem 0 15rem 0;
+  background: linear-gradient(rgba(25, 77, 68, 0.3), rgba(25, 77, 68, 0.3)),
+    url(../media/video-bg.png);
+  background-size: cover;
+  /* background-position: 100% 100%; */
 }
 .play-button {
   width: 10.67rem;
@@ -36,6 +56,9 @@
   border-radius: 50%;
   box-sizing: content-box;
   cursor: pointer;
+  position: relative;
+  z-index: 1000;
+  transform: translateY(-40%);
 }
 .play-button .inner {
   cursor: pointer;
@@ -44,6 +67,10 @@
   background: rgba(91, 200, 175, 0.8);
   border-radius: 50%;
   border: 2px solid #fff;
+}
+.play-button:hover img {
+  transform: scale(1.2);
+  transition: transform 200ms ease-in-out;
 }
 
 .play-button:hover:before {
@@ -78,22 +105,44 @@
 }
 
 @media screen and (min-width: 768px) {
+  .watch-video .grid {
+    gap: 0;
+  }
+  .video-guide {
+    padding: 6.67rem 4.8rem 2rem 4.8rem;
+  }
   .video-guide-item h4 {
     font-size: 2rem;
   }
   .video-guide-item p {
     font-size: 1.5rem;
   }
+  .play-video {
+    padding: 2rem 4.8rem 30rem 0;
+  }
+  .play-button {
+    transform: translateY(-0%);
+  }
 }
 @media screen and (min-width: 1024px) {
-  .watch-video {
-    background: url("../media/video-bg-cover.svg"), url("../media/cover.png");
-    background-size: cover;
+  .video-guide {
+    background: linear-gradient(180deg, #305d52 0%, #153f38 100%);
+    padding: 8rem 10rem 8rem 4.8rem;
   }
   .watch-video footer {
     text-align: right;
   }
-  .video-play {
+  .play-video {
     padding-bottom: 0;
+  }
+  .sm-video-graphic {
+    display: none;
+  }
+  .lg-video-graphic {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 88%;
+    height: 100%;
   }
 }
