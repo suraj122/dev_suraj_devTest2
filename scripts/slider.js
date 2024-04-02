@@ -125,6 +125,8 @@ function nextSlide() {
   currentSlide = nextSlideIndex;
   slider.style.transform = `translateX(-${currentSlide * 100}%)`;
   setActiveSlide(currentSlide);
+  stopSlideInterval();
+  startSlideInterval();
 }
 function prevSlide() {
   if (currentSlide > 0) {
@@ -134,6 +136,8 @@ function prevSlide() {
   }
   slider.style.transform = `translateX(-${currentSlide * 100}%)`;
   setActiveSlide(currentSlide);
+  stopSlideInterval();
+  startSlideInterval();
 }
 
 showSlider();

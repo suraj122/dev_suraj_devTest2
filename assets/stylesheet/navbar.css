@@ -6,3 +6,90 @@
   padding: 1rem 0;
   z-index: 100;
 }
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo,
+.menu-icon {
+  position: relative;
+  z-index: 10000;
+}
+
+.navbar-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 6rem 1.5rem 3rem 1.5rem;
+  background: linear-gradient(180deg, #022c24 0%, rgba(4, 49, 39, 0.9) 100%);
+  z-index: 1000;
+  text-align: center;
+  color: #fff;
+}
+.navbar-menu li {
+  margin-bottom: 1.5rem;
+}
+.navbar-menu a {
+  color: rgba(255, 255, 255, 0.7);
+}
+.navbar .active-route {
+  font-weight: 700;
+  color: #fff;
+  text-decoration: underline;
+}
+.contact-number {
+  font-weight: 700;
+}
+.contact-number a {
+  color: var(--highlight);
+}
+
+@media screen and (min-width: 768px) {
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar-menu {
+    display: inline-block;
+    position: static;
+    background: none;
+    padding: 0;
+    text-align: right;
+    width: auto;
+  }
+  .navbar-menu ul {
+    display: flex;
+    gap: 2.67rem;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+  .navbar-menu ul a:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+  .menu-icon-box {
+    display: none;
+  }
+  .navbar-menu li {
+    margin-bottom: 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .navbar-menu {
+    display: flex;
+  }
+  .contact-number {
+    margin-left: 4rem;
+  }
+  .contact-number::before {
+    content: "|";
+    display: inline-block;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin-right: 4rem;
+  }
+}

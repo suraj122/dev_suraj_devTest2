@@ -13,31 +13,36 @@
     />
     <!-- CSS -->
     <link rel="stylesheet" href="assets/stylesheet/style.css" />
+    <script defer src="scripts/navbar.js"></script>
     <script defer src="scripts/slider.js"></script>
+    <script defer src="scripts/contact-form.js"></script>
   </head>
   <body>
     <!-- Navigation Bar -->
     <header class="navbar">
-      <nav class="container flex-wrapper">
-        <img
-          class="logo"
-          src="assets/media/logo.svg"
-          alt="Get an Intervention"
-        />
-        <div>
-          <img src="assets/media/icons/menu.svg" alt="Menu Icon" />
-        </div>
-        <div class="hidden">
+      <nav class="container">
+        <a class="logo" href="index.html">
+          <img src="assets/media/logo.svg" alt="Get an Intervention"
+        /></a>
+
+        <div class="navbar-menu hidden">
           <ul>
-            <li><a href="/index.html">Home</a></li>
+            <li><a class="active-route" href="/index.html">Home</a></li>
             <li><a href="/index.html">About</a></li>
             <li><a href="/index.html">Contact</a></li>
           </ul>
 
-          <div>
+          <div class="contact-number">
             <span>CALL NOW FOR A CONSULT </span>
-            <a href="#">123.456.7890</a>
+            <a href="tel:+1234567890"> 123.456.7890</a>
           </div>
+        </div>
+        <div class="menu-icon-box">
+          <img
+            class="menu-icon"
+            src="assets/media/icons/menu.svg"
+            alt="Menu Icon"
+          />
         </div>
       </nav>
     </header>
@@ -64,18 +69,37 @@
                   Contact Us
                 </legend>
                 <div class="grid md-col-2">
-                  <input type="text" placeholder="First Name" />
-                  <input type="text" placeholder="Last Name" />
-                  <input type="email" placeholder="Business email" />
-                  <input type="text" placeholder="Comapany" />
-                </div>
+                  <div class="form-field">
+                    <label class="label" for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="first-name" />
 
-                <select name="" id="">
-                  <option value="india">India</option>
-                  <option value="india">Bangladesh</option>
-                  <option value="india">Pakistan</option>
-                  <option value="india">Newzealand</option>
-                </select>
+                    <div id="firstNameError" class="error-message"></div>
+                  </div>
+                  <div class="form-field">
+                    <label class="label" for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="last-name" />
+
+                    <div id="lastNameError" class="error-message"></div>
+                  </div>
+                  <div class="form-field">
+                    <label class="label" for="email">Business Email</label>
+                    <input type="email" id="email" name="email" />
+
+                    <div id="emailError" class="error-message"></div>
+                  </div>
+                  <div class="form-field">
+                    <label class="label" for="company">Comapany</label>
+                    <input type="text" id="company" name="company" />
+
+                    <div id="companyError" class="error-message"></div>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <select id="countryList" name="country">
+                    <option value="" disabled selected>Select Country</option>
+                  </select>
+                  <div id="countryError" class="error-message"></div>
+                </div>
               </fieldset>
               <button class="btn btn-primary">
                 <svg

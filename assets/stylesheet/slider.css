@@ -1,6 +1,4 @@
 .slider-wrapper {
-  position: relative;
-  margin-top: -5rem;
   overflow: hidden;
 }
 .slider-list {
@@ -26,6 +24,9 @@
 }
 .active-slide {
   opacity: 1 !important;
+}
+.active-dot {
+  fill: var(--highlight);
 }
 .next,
 .prev {
@@ -71,7 +72,9 @@ blockquote {
 
 @media screen and (min-width: 1024px) {
   .slider-wrapper {
-    padding: 0 8.67rem;
+    position: relative;
+    padding: 3rem 8.67rem 0 8.67rem;
+    margin-top: -8rem;
   }
   .slider-navigation svg:hover circle {
     fill: var(--highlight);
