@@ -87,10 +87,10 @@ function setActiveSlide(index) {
 }
 
 function startSlideInterval() {
-  slideInterval = setInterval(() => {
-    nextSlide();
-    setActiveSlide(currentSlide);
-  }, 5000);
+  // slideInterval = setInterval(() => {
+  //   nextSlide();
+  //   setActiveSlide(currentSlide);
+  // }, 5000);
 }
 
 function stopSlideInterval() {

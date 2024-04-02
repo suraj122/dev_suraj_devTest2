@@ -141,8 +141,8 @@ button {
   border-radius: 1rem;
 }
 
-/* Modal Styles*/
-.modal {
+/* player Styles*/
+.player {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
@@ -152,7 +152,7 @@ button {
   z-index: 100000;
   display: none;
 }
-.modal-body {
+.player-body {
   max-width: 992px;
 }
 
@@ -186,7 +186,7 @@ button {
   .btn-secondary {
     margin-top: 3rem;
   }
-  .modal {
+  .player {
     padding: 3rem 8rem;
   }
 }
@@ -209,7 +209,7 @@ button {
     text-align: left;
     margin-bottom: 4rem;
   }
-  .modal {
+  .player {
     padding: 10rem 16rem;
   }
 }
@@ -221,7 +221,7 @@ button {
   .xl-col-5 {
     grid-template-columns: repeat(5, 1fr);
   }
-  .modal {
+  .player {
     padding: 10rem 20rem;
   }
 }

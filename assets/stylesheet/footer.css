@@ -18,6 +18,12 @@
   display: inline-block;
   margin-left: 0.8rem;
 }
+.footer li a {
+  color: var(--main-text);
+}
+.footer li a:hover {
+  color: var(--tip-bg);
+}
 .footer li:last-child::after {
   display: none;
 }
