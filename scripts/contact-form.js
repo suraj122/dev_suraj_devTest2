@@ -47,10 +47,6 @@ const showError = (input, message) => {
 
 const clearError = (input) => {
   const errorElement = input.nextElementSibling;
-  //   errorElement.style.display = "none";
-  //   errorElement.textContent = "";
-  //   input.classList.remove("invalid");
-  //   input.previousElementSibling.classList.remove("invalid-label");
 };
 
 const validateForm = () => {
@@ -93,7 +89,6 @@ const validateForm = () => {
   } else {
     countryError.textContent = "";
     countryListWrapper.classList.remove("invalid");
-    // console.log(countryList.value);
   }
 
   return isValid;
@@ -128,6 +123,7 @@ countryListWrapper.addEventListener("change", () => {
   clearError(countryList);
 });
 
+// Sumbmits the form
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 

@@ -4,6 +4,7 @@ const videoPlayer = document.getElementById("videoPlayer");
 const src =
   "https://www.youtube.com/embed/IfgiiEmyYt0?si=pPHZubb4Gh1QP018?&autoplay=1&mute=1";
 
+// Play video
 playButton.addEventListener("click", () => {
   player.style.display = "flex";
   videoPlayer.src = src;

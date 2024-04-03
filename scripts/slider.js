@@ -26,10 +26,12 @@ const prev = document.querySelector("#prev");
 let currentSlide = 0;
 let slideInterval;
 
+// Render All slide
 function showSlider() {
   slides.map((slide, index) => slider.append(createSlide(slide, index)));
 }
 
+// Creates single Slide
 function createSlide(slide, index) {
   const li = document.createElement("li");
   li.classList.add("slider-item");
@@ -86,6 +88,7 @@ function setActiveSlide(index) {
   }
 }
 
+// Starts slide automatically and Infinitely
 function startSlideInterval() {
   slideInterval = setInterval(() => {
     nextSlide();
@@ -128,6 +131,7 @@ function nextSlide() {
   stopSlideInterval();
   startSlideInterval();
 }
+
 function prevSlide() {
   if (currentSlide > 0) {
     currentSlide = currentSlide - 1;

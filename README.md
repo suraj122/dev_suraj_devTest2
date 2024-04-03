@@ -8,7 +8,7 @@ Please visit for live preview:
 
 ### Description
 
-The Kanban Board is an assignment provided as part of the interview process at Spiralyze that showcases HTML, CSS, and JavaScript skills.
+The Spiralyze Test is an assignment provided as part of the interview process at Spiralyze that showcases HTML, CSS, and JavaScript skills.
 
 ### Features
 
