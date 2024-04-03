@@ -98,7 +98,10 @@ const validateForm = () => {
 const addFocusBlurEvents = (input, label) => {
   input.addEventListener("focus", () => {
     const errorElement = document.querySelectorAll(".error-message");
-    errorElement.forEach((elm) => (elm.style.display = "none"));
+    errorElement.forEach((elm) => {
+      elm.innerHTML = "";
+      elm.style.display = "none";
+    });
     if (label) {
       label.classList.add("focused-label");
     }
