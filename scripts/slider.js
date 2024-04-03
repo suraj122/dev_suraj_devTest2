@@ -1,19 +1,19 @@
 const slides = [
   {
     authorName: "Abbie",
-    imgSrc: "assets/media/abbie.png",
+    imgSrc: "assets/media/testimonial/abbie.png",
     description:
       "I have been caring for my mom & dad off and on for about 10 years now, and I know the importance of me being there for appointments. Older people need attention, love and care that they truly deserve.",
   },
   {
     authorName: "Tom",
-    imgSrc: "assets/media/tom.png",
+    imgSrc: "assets/media/testimonial/tom.png",
     description:
       "I have been caring for my mom & dad off and on for about 10 years now, and I know the importance of me being there for appointments. Older people need attention, love and care that they truly deserve.",
   },
   {
     authorName: "Taylor",
-    imgSrc: "assets/media/taylor.png",
+    imgSrc: "assets/media/testimonial/taylor.png",
     description:
       "I have been caring for my mom & dad off and on for about 10 years now, and I know the importance of me being there for appointments. Older people need attention, love and care that they truly deserve.",
   },
@@ -87,10 +87,10 @@ function setActiveSlide(index) {
 }
 
 function startSlideInterval() {
-  // slideInterval = setInterval(() => {
-  //   nextSlide();
-  //   setActiveSlide(currentSlide);
-  // }, 5000);
+  slideInterval = setInterval(() => {
+    nextSlide();
+    setActiveSlide(currentSlide);
+  }, 5000);
 }
 
 function stopSlideInterval() {
