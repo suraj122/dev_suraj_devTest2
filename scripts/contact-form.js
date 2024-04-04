@@ -1,10 +1,11 @@
 const form = document.querySelector("form");
-const countryListWrapper = document.querySelector("#countryList");
+const country = document.querySelector("#country");
 const firstName = document.getElementById("firstName");
 const lastName = document.getElementById("lastName");
 const email = document.getElementById("email");
 const company = document.getElementById("company");
-let countryList = [];
+const countrList = document.getElementById("countryList");
+let countryData = [];
 const API_URL = "https://restcountries.com/v3.1/all";
 
 // Fetching and Displaying List of countries
@@ -12,7 +13,7 @@ const fetchCountryList = async (url) => {
   try {
     const response = await fetch(url);
     const result = await response.json();
-    countryList = result;
+    countryData = result;
     renderCountryList();
   } catch (error) {
     console.error(error);
@@ -21,15 +22,38 @@ const fetchCountryList = async (url) => {
 fetchCountryList(API_URL);
 
 function renderCountryList() {
-  countryList.map((country) => {
-    const option = document.createElement("option");
-    option.value = country.name.common;
-    option.innerText = country.name.common;
-    option.style.backgroundColor = "rgba(91, 200, 175, 1)";
-    option.style.color = "white";
-    countryListWrapper.appendChild(option);
+  countryData.sort((a, b) => {
+    let nameA = a.name.common;
+    let nameB = b.name.common;
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  });
+  countryData.map((countryItem) => {
+    let countryValue = countryItem.name.common;
+    const li = document.createElement("li");
+    li.innerText = countryValue;
+    li.addEventListener("click", () => {
+      country.value = countryValue;
+    });
+    countrList.appendChild(li);
   });
 }
+
+// Show Countrylist and select
+country.addEventListener("focus", () => {
+  const label = document.querySelector(".country label");
+  label.style.display = "inline-block";
+  countrList.style.display = "inline-block";
+});
+document.addEventListener("click", (e) => {
+  const nodeId = e.target.id;
+  if (nodeId !== "country") countrList.style.display = "none";
+});
 
 // Validation Form
 const showError = (input, message) => {
@@ -81,14 +105,14 @@ const validateForm = () => {
     clearError(company);
   }
 
-  if (countryListWrapper.value === "") {
-    countryError.textContent = "Please select a country";
-    countryListWrapper.classList.add("invalid");
-    countryError.style.display = "inline-block";
+  if (
+    country.value.trim() === "" ||
+    country.value.trim() === "Select Country"
+  ) {
+    showError(country, "Pease select a country");
     isValid = false;
   } else {
-    countryError.textContent = "";
-    countryListWrapper.classList.remove("invalid");
+    clearError(country);
   }
 
   return isValid;
@@ -105,10 +129,14 @@ const addFocusBlurEvents = (input, label) => {
     if (label) {
       label.classList.add("focused-label");
     }
+
     input.style.color = "white";
   });
 
   input.addEventListener("blur", () => {
+    if (input.value === "") {
+      label.classList.remove("focused-label");
+    }
     clearError(input);
   });
 };
@@ -117,14 +145,7 @@ addFocusBlurEvents(firstName, firstName.previousElementSibling);
 addFocusBlurEvents(lastName, lastName.previousElementSibling);
 addFocusBlurEvents(email, email.previousElementSibling);
 addFocusBlurEvents(company, company.previousElementSibling);
-addFocusBlurEvents(
-  countryListWrapper,
-  countryListWrapper.previousElementSibling
-);
-
-countryListWrapper.addEventListener("change", () => {
-  clearError(countryList);
-});
+addFocusBlurEvents(country, country.previousElementSibling);
 
 // Sumbmits the form
 form.addEventListener("submit", (event) => {
