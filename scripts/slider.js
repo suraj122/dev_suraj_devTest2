@@ -18,132 +18,157 @@ const slides = [
       "I have been caring for my mom & dad off and on for about 10 years now, and I know the importance of me being there for appointments. Older people need attention, love and care that they truly deserve.",
   },
 ];
+// Constants
+const SLIDE_INTERVAL = 5000;
+const SWIPE_THRESHOLD = 50;
 
+// Elements
 const slider = document.querySelector("#slider-list");
 const sliderNavigation = document.querySelector(".slider-navigation");
-const next = document.querySelector("#next");
-const prev = document.querySelector("#prev");
-let currentSlide = 0;
+const nextBtn = document.querySelector("#next");
+const prevBtn = document.querySelector("#prev");
+
+// Variables
+let currentSlideIndex = 0;
 let slideInterval;
+let touchStartX = 0;
+let touchEndX = 0;
+let isDragging = false;
+let startX = 0;
+let endX = 0;
 
-// Render All slide
-function showSlider() {
-  slides.map((slide, index) => slider.append(createSlide(slide, index)));
-}
-
-// Creates single Slide
-function createSlide(slide, index) {
+// Utility Functions
+const createSlide = (slide, index) => {
+  const { authorName, imgSrc, description } = slide;
   const li = document.createElement("li");
-  li.classList.add("slider-item");
-  li.classList.add(`slide-${index}`);
-  const img = document.createElement("img");
-  img.classList.add("story-author-avatar");
-  img.src = slide.imgSrc;
-  img.alt = slide.authorName;
-  const storyDiv = document.createElement("div");
-  const cite = document.createElement("cite");
-  cite.classList.add("story-author");
-  cite.innerText = slide.authorName;
-  const blockquote = document.createElement("blockquote");
-  const p = document.createElement("p");
-  p.innerText = slide.description;
-  const quoteIcon = document.createElement("img");
-  quoteIcon.src = "assets/media/icons/quote.svg";
-  quoteIcon.alt = "Quotation Icon";
-  quoteIcon.classList.add("quote-icon");
-  blockquote.append(p);
-  storyDiv.classList.add("author-story");
-  storyDiv.append(cite, blockquote, quoteIcon);
-  li.append(img, storyDiv);
+  li.classList.add("slider-item", `slide-${index}`);
+  li.innerHTML = `
+    <img src="${imgSrc}" alt="${authorName}" class="story-author-avatar">
+    <div class="author-story">
+      <cite class="story-author">${authorName}</cite>
+      <blockquote><p>${description}</p></blockquote>
+      <img src="assets/media/icons/quote.svg" alt="Quotation Icon" class="quote-icon">
+    </div>`;
   return li;
-}
+};
 
-function setActiveSlide(index) {
+const setActiveSlide = (index) => {
   const activeSlide = document.querySelector(`.slide-${index}`);
-  const allSlides = document.querySelectorAll(".slider-item");
+  document
+    .querySelectorAll(".slider-item.active-slide")
+    .forEach((slide) => slide.classList.remove("active-slide"));
+  activeSlide.classList.add("active-slide");
 
-  // Remove active class from all slides
-  allSlides.forEach((slide) => {
-    slide.classList.remove("active-slide");
-  });
-
-  // Add active class to the current slide
-  if (activeSlide) {
-    activeSlide.classList.add("active-slide");
-  }
-  // Remove active class from all slider navigation items
-  const allSliderNavItems = document.querySelectorAll(
-    ".slider-navigation circle"
-  );
-  allSliderNavItems.forEach((item) => {
-    item.classList.remove("active-dot");
-  });
-
-  // Add active class to the slider navigation item corresponding to the current slide
-  const currentSliderNavItem = document.querySelector(
+  const activeDot = document.querySelector(
     `.slider-navigation circle[id="${index}"]`
   );
-  if (currentSliderNavItem) {
-    currentSliderNavItem.classList.add("active-dot");
+  document
+    .querySelectorAll(".slider-navigation circle.active-dot")
+    .forEach((dot) => dot.classList.remove("active-dot"));
+  activeDot.classList.add("active-dot");
+};
+
+const navigateSlide = (index) => {
+  const lastIndex = slides.length - 1;
+  const translateX = -(index * 100);
+  slider.style.transition = "transform 0.5s ease-in-out"; // Add transition effect
+  slider.style.transform = `translateX(${translateX}%)`;
+  currentSlideIndex = index;
+  setActiveSlide(currentSlideIndex);
+  stopSlideInterval();
+  startSlideInterval();
+};
+
+// Update nextSlide and prevSlide functions accordingly
+const nextSlide = () => {
+  currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+  if (currentSlideIndex === 0) {
+    const firstSlide = slides.shift();
+    slides.push(firstSlide);
+    showSlider(); // Update slider with new order
   }
-}
+  navigateSlide(currentSlideIndex);
+};
 
-// Starts slide automatically and Infinitely
-function startSlideInterval() {
-  slideInterval = setInterval(() => {
-    nextSlide();
-    setActiveSlide(currentSlide);
-  }, 5000);
-}
+const prevSlide = () => {
+  currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+  if (currentSlideIndex === slides.length - 1) {
+    const lastSlide = slides.pop();
+    slides.unshift(lastSlide);
+    showSlider(); // Update slider with new order
+  }
+  navigateSlide(currentSlideIndex);
+};
 
-function stopSlideInterval() {
+const startSlideInterval = () => {
+  slideInterval = setInterval(nextSlide, SLIDE_INTERVAL);
+};
+
+const stopSlideInterval = () => {
   clearInterval(slideInterval);
-}
+};
 
-// Slider Navigation
+// Event Listeners
+nextBtn.addEventListener("click", nextSlide);
+prevBtn.addEventListener("click", prevSlide);
 sliderNavigation.addEventListener("click", (e) => {
   if (e.target.nodeName === "circle") {
-    const id = +e.target.id;
-    slider.style.transform = `translateX(-${id * 100}%)`;
-    currentSlide = id;
-    setActiveSlide(currentSlide);
-    stopSlideInterval();
+    const index = +e.target.id;
+    navigateSlide(index);
   }
 });
 
-// Slider Next and Previous button
-next.addEventListener("click", () => {
-  nextSlide();
-  setActiveSlide(currentSlide);
-});
-prev.addEventListener("click", () => {
-  prevSlide();
-  setActiveSlide(currentSlide);
+slider.addEventListener("touchstart", (e) => {
+  touchStartX = e.touches[0].clientX;
 });
 
-function nextSlide() {
-  const nextIndex = currentSlide + 1;
-  const nextSlideIndex =
-    nextIndex >= slides.length ? nextIndex - slides.length : nextIndex;
-  currentSlide = nextSlideIndex;
-  slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-  setActiveSlide(currentSlide);
-  stopSlideInterval();
-  startSlideInterval();
-}
+slider.addEventListener("touchmove", (e) => {
+  touchEndX = e.touches[0].clientX;
+});
 
-function prevSlide() {
-  if (currentSlide > 0) {
-    currentSlide = currentSlide - 1;
-  } else {
-    currentSlide = slides.length - 1; // Go to the last slide
+slider.addEventListener("touchend", () => {
+  const touchDiff = touchEndX - touchStartX;
+  if (touchDiff > SWIPE_THRESHOLD) {
+    prevSlide(); // Swipe right
+  } else if (touchDiff < -SWIPE_THRESHOLD) {
+    nextSlide(); // Swipe left
   }
-  slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-  setActiveSlide(currentSlide);
-  stopSlideInterval();
-  startSlideInterval();
-}
+});
 
-showSlider();
-setActiveSlide(currentSlide);
-startSlideInterval();
+slider.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  startX = e.clientX;
+});
+
+slider.addEventListener("mousemove", (e) => {
+  if (isDragging) {
+    endX = e.clientX;
+  }
+});
+
+slider.addEventListener("mouseup", () => {
+  if (isDragging) {
+    const mouseDiff = endX - startX;
+    if (mouseDiff > SWIPE_THRESHOLD) {
+      prevSlide(); // Swipe right
+    } else if (mouseDiff < -SWIPE_THRESHOLD) {
+      nextSlide(); // Swipe left
+    }
+    isDragging = false;
+  }
+});
+
+// Initialize Slider
+const initSlider = () => {
+  showSlider();
+  setActiveSlide(currentSlideIndex);
+  startSlideInterval();
+};
+
+// Show Slider Function
+const showSlider = () => {
+  slides.forEach((slide, index) => slider.append(createSlide(slide, index)));
+};
+
+// Initialize Slider
+initSlider();

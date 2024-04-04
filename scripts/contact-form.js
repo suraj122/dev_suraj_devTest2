@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
       renderCountryList(result);
     } catch (error) {
       console.error("Error fetching country list:", error);
-      // Handle error (e.g., show a fallback list)
     }
   };
   fetchCountryList(API_URL);
@@ -56,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     errorElement.style.display = "inline-block";
     input.classList.add("invalid");
     input.previousElementSibling.classList.add("invalid-label");
-    input.classList.add("invalid-field"); // Add class for red color
+    input.classList.add("invalid-field");
   };
 
   const clearError = (input) => {
@@ -65,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     errorElement.style.display = "none";
     input.classList.remove("invalid");
     input.previousElementSibling.classList.remove("invalid-label");
-    input.classList.remove("invalid-field"); // Remove class for red color
+    input.classList.remove("invalid-field");
   };
 
   const validateField = (input) => {
