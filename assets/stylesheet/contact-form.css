@@ -24,7 +24,6 @@
 }
 .country {
   margin-top: 1rem;
-  cursor: pointer;
 }
 .contact-form .country svg {
   position: absolute;
@@ -34,16 +33,6 @@
 }
 .country label {
   display: none;
-}
-.contact-form .country input:focus + label {
-  display: inline-block;
-  background-color: red;
-}
-.contact-form input:focus,
-.contact-form input:active,
-.contact-form select:focus,
-.contact-form select:active {
-  border-color: white;
 }
 .contact-form input::placeholder {
   color: rgba(255, 255, 255, 0.7);

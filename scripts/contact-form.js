@@ -1,157 +1,135 @@
-const form = document.querySelector("form");
-const country = document.querySelector("#country");
-const firstName = document.getElementById("firstName");
-const lastName = document.getElementById("lastName");
-const email = document.getElementById("email");
-const company = document.getElementById("company");
-const countrList = document.getElementById("countryList");
-let countryData = [];
-const API_URL = "https://restcountries.com/v3.1/all";
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector(".contact-form");
+  const country = document.getElementById("country");
+  const firstName = document.getElementById("firstName");
+  const lastName = document.getElementById("lastName");
+  const email = document.getElementById("email");
+  const company = document.getElementById("company");
+  const countryList = document.getElementById("countryList");
+  const API_URL = "https://restcountries.com/v3.1/all";
 
-// Fetching and Displaying List of countries
-const fetchCountryList = async (url) => {
-  try {
-    const response = await fetch(url);
-    const result = await response.json();
-    countryData = result;
-    renderCountryList();
-  } catch (error) {
-    console.error(error);
-  }
-};
-fetchCountryList(API_URL);
+  // Fetch and render country list
+  const fetchCountryList = async (url) => {
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+      renderCountryList(result);
+    } catch (error) {
+      console.error("Error fetching country list:", error);
+      // Handle error (e.g., show a fallback list)
+    }
+  };
+  fetchCountryList(API_URL);
 
-function renderCountryList() {
-  countryData.sort((a, b) => {
-    let nameA = a.name.common;
-    let nameB = b.name.common;
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-    return 0;
-  });
-  countryData.map((countryItem) => {
-    let countryValue = countryItem.name.common;
-    const li = document.createElement("li");
-    li.innerText = countryValue;
-    li.addEventListener("click", () => {
-      country.value = countryValue;
+  const renderCountryList = (countries) => {
+    countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
+    const countryItems = countries.map((countryItem) => {
+      const li = document.createElement("li");
+      li.innerText = countryItem.name.common;
+      return li;
     });
-    countrList.appendChild(li);
+    countryList.append(...countryItems);
+  };
+
+  // Show/hide country list
+  country.addEventListener("focus", () => {
+    countryList.style.display = "block";
   });
-}
-
-// Show Countrylist and select
-country.addEventListener("focus", () => {
-  const label = document.querySelector(".country label");
-  label.style.display = "inline-block";
-  countrList.style.display = "inline-block";
-});
-document.addEventListener("click", (e) => {
-  const nodeId = e.target.id;
-  if (nodeId !== "country") countrList.style.display = "none";
-});
-
-// Validation Form
-const showError = (input, message) => {
-  const errorElement = input.nextElementSibling;
-  const icon = document.createElement("img");
-  icon.src = "assets/media/icons/arrow-up.svg";
-  icon.alt = "Arrow Up Icon";
-  const span = document.createElement("span");
-  span.textContent = message;
-  errorElement.append(icon, span);
-  errorElement.style.display = "inline-block";
-  input.classList.add("invalid");
-  input.previousElementSibling.classList.add("invalid-label");
-};
-
-const clearError = (input) => {
-  const errorElement = input.nextElementSibling;
-};
-
-const validateForm = () => {
-  let isValid = true;
-
-  if (firstName.value.trim() === "") {
-    showError(firstName, "Please enter your first name");
-    isValid = false;
-  } else {
-    clearError(firstName);
-  }
-
-  if (lastName.value.trim() === "") {
-    showError(lastName, "Please enter your last name");
-    isValid = false;
-  } else {
-    clearError(lastName);
-  }
-
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(email.value.trim())) {
-    showError(email, "Please enter a valid email address");
-    isValid = false;
-  } else {
-    clearError(email);
-  }
-
-  if (company.value.trim() === "") {
-    showError(company, "Please enter your company name");
-    isValid = false;
-  } else {
-    clearError(company);
-  }
-
-  if (
-    country.value.trim() === "" ||
-    country.value.trim() === "Select Country"
-  ) {
-    showError(country, "Pease select a country");
-    isValid = false;
-  } else {
-    clearError(country);
-  }
-
-  return isValid;
-};
-
-// Add focus and blur event listeners to input fields
-const addFocusBlurEvents = (input, label) => {
-  input.addEventListener("focus", () => {
-    const errorElement = document.querySelectorAll(".error-message");
-    errorElement.forEach((elm) => {
-      elm.innerHTML = "";
-      elm.style.display = "none";
-    });
-    if (label) {
-      label.classList.add("focused-label");
+  countryList.addEventListener("click", (e) => {
+    if (e.target.tagName === "LI") {
+      country.value = e.target.innerText;
+      countryList.style.display = "none";
+      validateField(country);
     }
-
-    input.style.color = "white";
   });
 
-  input.addEventListener("blur", () => {
-    if (input.value === "") {
-      label.classList.remove("focused-label");
+  document.addEventListener("click", (e) => {
+    if (!country.contains(e.target)) {
+      countryList.style.display = "none";
+    }
+  });
+
+  // Validation
+  const showError = (input, message) => {
+    const errorElement = input.nextElementSibling;
+    errorElement.innerHTML = `<img src="assets/media/icons/arrow-up.svg" alt="Arrow Up Icon"><span>${message}</span>`;
+    errorElement.style.display = "inline-block";
+    input.classList.add("invalid");
+    input.previousElementSibling.classList.add("invalid-label");
+    input.classList.add("invalid-field"); // Add class for red color
+  };
+
+  const clearError = (input) => {
+    const errorElement = input.nextElementSibling;
+    errorElement.innerHTML = "";
+    errorElement.style.display = "none";
+    input.classList.remove("invalid");
+    input.previousElementSibling.classList.remove("invalid-label");
+    input.classList.remove("invalid-field"); // Remove class for red color
+  };
+
+  const validateField = (input) => {
+    if (input.value.trim() === "") {
+      showError(
+        input,
+        `Please enter your ${input.previousElementSibling.innerText.toLowerCase()}`
+      );
+      return false;
     }
     clearError(input);
+    return true;
+  };
+
+  const validateForm = () => {
+    const fields = [firstName, lastName, email, company, country];
+    let isValid = true;
+
+    fields.forEach((field) => {
+      if (!validateField(field)) {
+        isValid = false;
+      }
+    });
+
+    // Validate Select Country field
+    if (
+      country.value.trim() === "" ||
+      country.value.trim() === "Select Country"
+    ) {
+      showError(country, "Please select a country");
+      isValid = false;
+    } else {
+      clearError(country);
+    }
+
+    return isValid;
+  };
+
+  // Add focus and blur event listeners
+  [firstName, lastName, email, company, country].forEach((input) => {
+    input.addEventListener("focus", () => {
+      input.previousElementSibling.classList.add("focused-label");
+    });
+
+    input.addEventListener("blur", () => {
+      if (input.value.trim() === "") {
+        input.previousElementSibling.classList.remove("focused-label");
+      }
+      validateField(input);
+    });
   });
-};
 
-addFocusBlurEvents(firstName, firstName.previousElementSibling);
-addFocusBlurEvents(lastName, lastName.previousElementSibling);
-addFocusBlurEvents(email, email.previousElementSibling);
-addFocusBlurEvents(company, company.previousElementSibling);
-addFocusBlurEvents(country, country.previousElementSibling);
+  // Form submission
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-// Sumbmits the form
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  if (validateForm()) {
-    window.location.href = "thankYou.html";
-  }
+    if (validateForm()) {
+      form.submit();
+    } else {
+      // If form is invalid, focus on the first invalid input
+      const firstInvalidInput = form.querySelector(".invalid");
+      if (firstInvalidInput) {
+        firstInvalidInput.focus();
+      }
+    }
+  });
 });
