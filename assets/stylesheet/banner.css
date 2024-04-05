@@ -1,8 +1,12 @@
 .banner {
-  background: linear-gradient(180deg, #194d41 0%, rgba(25, 77, 65, 0.7) 100%),
+  background: linear-gradient(#194d41 0%, rgba(25, 77, 65, 0.7) 100%),
     url(../media/cover.png);
-  background-size: cover;
-  padding: 6.6rem 0 12rem 0;
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-color: rgba(27, 72, 53, 1);
+  background-position: 100% 0;
+  background-size: 240% 40%;
+  padding: 8rem 0 14.6rem 0;
   position: relative;
 }
 .banner-graphics {
@@ -17,7 +21,7 @@
 }
 .banner .heading-primary {
   color: white;
-  margin-bottom: 1.34rem;
+  margin-bottom: 1.6rem;
 }
 .banner p {
   color: rgba(255, 255, 255, 0.8);
