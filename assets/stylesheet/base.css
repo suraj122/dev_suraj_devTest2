@@ -208,13 +208,16 @@ button {
     width: 100%;
   }
   .grid {
-    gap: 3rem;
+    gap: 3.6rem;
   }
   .lg-col-2 {
     grid-template-columns: repeat(2, 1fr);
   }
   .lg-col-3 {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .lg-col-5 {
+    grid-template-columns: repeat(5, 1fr);
   }
   .heading-tertiary {
     text-align: left;

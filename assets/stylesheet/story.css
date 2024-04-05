@@ -20,7 +20,7 @@
 }
 @media screen and (min-width: 1024px) {
   .story-wrapper {
-    padding: 6.67rem 0 10.84rem 0;
+    padding: 8rem 0 14rem 0;
   }
   .span-2 {
     grid-column: span 2;

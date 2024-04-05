@@ -83,11 +83,9 @@
     margin-bottom: 2.4rem;
   }
   .navbar-menu li {
-    margin-bottom: 0;
+    margin: 0;
   }
-  .navbar-menu ul a:hover {
-    color: rgba(255, 255, 255, 1);
-  }
+
   .menu-icon-box {
     display: none;
   }
@@ -101,6 +99,12 @@
   }
   .navbar-menu ul {
     margin-bottom: 0;
+  }
+  .navbar-menu ul a {
+    transition: color 200ms ease-in-out;
+  }
+  .navbar-menu ul a:hover {
+    color: rgba(255, 255, 255, 1);
   }
   .contact-number {
     margin-left: 4rem;

@@ -1,13 +1,13 @@
 .watch-video {
-  background-color: var(--tip-bg);
+  background: #164139;
   background-repeat: no-repeat;
   color: #fff;
   position: relative;
+  overflow: hidden;
 }
 .video-guide {
   position: relative;
-  padding: 8rem 1.6rem 4rem 1.6rem;
-  background: linear-gradient(180deg, #305d52 1.26%, #153f38 100%);
+  padding: 8rem 1.6rem 4rem 0rem;
 }
 .video-guide-item h4 {
   font-size: 1.8rem;
@@ -30,13 +30,17 @@
   position: absolute;
   bottom: 3rem;
   width: 100%;
+  left: 0;
+  right: 0;
 }
 
 .sm-video-graphic {
-  width: 100%;
+  width: 110%;
   position: absolute;
-  left: 0;
+  left: -1.5rem;
+  right: 0;
   top: 96%;
+  z-index: 1000;
 }
 .lg-video-graphic {
   display: none;
@@ -46,6 +50,7 @@
   background: linear-gradient(rgba(25, 77, 68, 0.3), rgba(25, 77, 68, 0.3)),
     url(../media/video-bg.png);
   background-size: cover;
+  margin: 0 -1.5rem;
 }
 .play-button {
   width: 12.8rem;
@@ -73,8 +78,8 @@
 
 .play-button:hover:before {
   content: "";
-  width: 10.67rem;
-  height: 10.67rem;
+  width: 20.6rem;
+  height: 20.6rem;
   position: absolute;
   border-radius: 100%;
   -webkit-animation: ripples 0.5s ease-in-out;
@@ -107,7 +112,7 @@
     gap: 0;
   }
   .video-guide {
-    padding: 10rem 2.4rem 2rem 2.4rem;
+    padding: 10rem 2.4rem 2rem 0rem;
   }
   .video-guide-item {
     margin: 2.4rem 0;
@@ -119,7 +124,43 @@
     font-size: 1.8rem;
   }
   .play-video {
+    margin: 0 -2.4rem;
     padding: 2rem 4.8rem 32rem 0;
+  }
+  .play-button {
+    width: 20rem;
+    height: 20rem;
+    transform: translateY(-20%);
+    position: relative;
+    z-index: 100000;
+  }
+  .play-button .inner {
+    width: 15.4rem;
+    height: 15.4rem;
+  }
+  .sm-video-graphic {
+    left: -2.4rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .watch-video {
+    background: linear-gradient(180deg, #305d52 0%, #153f38 100%);
+  }
+  .video-guide {
+    /* background: linear-gradient(180deg, #305d52 0%, #153f38 100%); */
+    padding: 10rem 9rem 10rem 0;
+  }
+  .watch-video footer {
+    text-align: right;
+  }
+  .play-video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 50%;
+    padding-bottom: 0;
+    margin: 0;
   }
   .play-button {
     width: 20rem;
@@ -127,20 +168,8 @@
     transform: translateY(-20%);
   }
   .play-button .inner {
-    width: 15.4rem;
-    height: 15.4rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .video-guide {
-    background: linear-gradient(180deg, #305d52 0%, #153f38 100%);
-    padding: 8rem 10rem 8rem 4.8rem;
-  }
-  .watch-video footer {
-    text-align: right;
-  }
-  .play-video {
-    padding-bottom: 0;
+    width: 12rem;
+    height: 12rem;
   }
   .sm-video-graphic {
     display: none;
@@ -151,5 +180,9 @@
     top: 0;
     left: 88%;
     height: 100%;
+    z-index: 100;
   }
+}
+
+@media screen and (min-width: 1200px) {
 }

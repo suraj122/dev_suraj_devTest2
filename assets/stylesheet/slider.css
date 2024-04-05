@@ -95,9 +95,6 @@ blockquote {
     padding: 3.6rem;
   }
   .story-author {
-    font-size: 1.8rem;
-    display: block;
-    font-weight: 700;
     margin: 0rem 0 1.4rem 0;
   }
   .story-author-avatar {
@@ -120,6 +117,22 @@ blockquote {
     padding: 3rem 8.67rem 0 8.67rem;
     margin-top: -8rem;
   }
+
+  .story-author-avatar {
+    width: 27rem;
+    height: 27rem;
+  }
+  .story-author {
+    font-size: 2.4rem;
+    margin-bottom: 1.8rem;
+  }
+  .author-story {
+    max-height: 27rem;
+    padding: 6rem;
+  }
+  .author-story p {
+    font-size: 1.8rem;
+  }
   .slider-navigation svg:hover circle {
     fill: var(--highlight);
   }
@@ -128,7 +141,7 @@ blockquote {
   .prev {
     cursor: pointer;
     position: absolute;
-    top: 45%;
+    top: 40%;
     transform: translateY(-50%);
     display: inline-block;
   }
