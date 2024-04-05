@@ -164,11 +164,11 @@ button {
 
 @media screen and (min-width: 768px) {
   .container {
-    padding: 0 1.5rem;
+    padding: 0 2.4rem;
   }
   .grid {
     display: grid;
-    gap: 2rem;
+    gap: 2.4rem;
   }
   .md-col-2 {
     grid-template-columns: repeat(2, 1fr);
@@ -177,10 +177,11 @@ button {
     grid-template-columns: repeat(3, 1fr);
   }
   .heading-primary {
-    font-size: 5.34rem;
+    font-size: 6.4rem;
   }
   .heading-secondary {
-    font-size: 3rem;
+    font-size: 3.6rem;
+    margin-bottom: 3.2rem;
   }
   .heading-tertiary {
     font-size: 3.67rem;
@@ -190,7 +191,11 @@ button {
     margin: 0;
   }
   .btn-secondary {
-    margin-top: 3rem;
+    margin-top: 3.4rem;
+  }
+  .btn-primary {
+    padding: 1.6rem 6rem;
+    max-width: 22rem;
   }
   .player {
     padding: 3rem 8rem;

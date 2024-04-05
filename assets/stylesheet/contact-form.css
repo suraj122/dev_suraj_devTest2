@@ -32,16 +32,6 @@
   top: 50%;
   transform: translateY(-50%);
 }
-.country label {
-  display: none;
-}
-.contact-form input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-.contact-form option {
-  color: white;
-  background-color: var(--highlight);
-}
 .form-field {
   position: relative;
 }
@@ -98,8 +88,9 @@
 
 .error-message {
   background-color: rgba(255, 119, 119, 1);
+  font-size: 1.3rem;
   color: white;
-  padding: 1.34rem 1rem;
+  padding: 1.6rem 1.2rem;
   border-radius: 8px;
   position: absolute;
   left: 50%;
@@ -121,16 +112,23 @@
   .contact {
     padding: 0 4rem;
   }
-
+  .contact-form {
+    padding: 5rem 2.8rem;
+  }
+  .contact-form .heading-secondary {
+    font-size: 2.8rem;
+  }
+  .contact .grid {
+    gap: 1.6rem;
+  }
+  .country {
+    margin-top: 1.6rem;
+  }
   .contact-form input {
     margin: 0;
   }
   .contact-form select {
-    margin-top: 1.34rem;
-  }
-
-  .contact-form {
-    padding: 4.67rem 2.34rem;
+    margin-top: 6rem;
   }
 }
 

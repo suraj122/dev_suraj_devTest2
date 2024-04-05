@@ -56,17 +56,15 @@
 
 @media screen and (min-width: 768px) {
   .banner {
-    padding-top: 13rem;
+    padding: 16.6rem 7.2rem 14.6rem 7.2rem;
+    background-size: 240% 100%;
+    background-position: 80% center;
   }
   .banner .container {
     padding: 0 8rem;
   }
-  .contact .grid {
-    gap: 1.34rem;
-  }
-
-  .banner .heading-secondary {
-    font-size: 2.34rem;
+  .banner header p {
+    font-size: 1.6rem;
   }
 }
 

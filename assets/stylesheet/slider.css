@@ -79,33 +79,38 @@ blockquote {
 
 @media screen and (min-width: 768px) {
   .slider-wrapper {
-    margin-top: -6rem;
+    margin-top: -10.4rem;
   }
   .slider-item {
     display: flex;
     gap: 3rem;
     background-color: transparent;
+    padding: 0;
   }
   .author-story {
-    max-height: 21.67rem;
+    max-height: 19.8rem;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     box-shadow: var(--drop-shadow);
-    padding: 5rem;
+    padding: 3.6rem;
+  }
+  .story-author {
+    font-size: 1.8rem;
+    display: block;
+    font-weight: 700;
+    margin: 0rem 0 1.4rem 0;
   }
   .story-author-avatar {
-    width: 21.67rem;
-    height: 21.67rem;
+    width: 19.8rem;
+    height: 19.8rem;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
     margin-top: 0;
   }
   .quote-icon {
-    top: 3rem;
-    bottom: 0;
-  }
-  .slider-navigation {
-    margin-top: 0;
+    top: 2rem;
+    right: 3.6rem;
+    width: 4rem;
   }
 }
 

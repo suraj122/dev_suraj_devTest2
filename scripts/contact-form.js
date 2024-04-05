@@ -89,17 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Validate Select Country field
-    if (
-      country.value.trim() === "" ||
-      country.value.trim() === "Select Country"
-    ) {
-      showError(country, "Please select a country");
-      isValid = false;
-    } else {
-      clearError(country);
-    }
-
     return isValid;
   };
 

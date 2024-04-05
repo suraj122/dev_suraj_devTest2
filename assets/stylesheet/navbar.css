@@ -56,13 +56,19 @@
 }
 
 @media screen and (min-width: 768px) {
+  .navbar {
+    padding: 2rem 0;
+  }
   .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+  .logo {
+    width: 22.6rem;
+  }
   .navbar-menu {
-    display: inline-block;
+    height: auto;
     position: static;
     background: none;
     padding: 0;
@@ -71,10 +77,13 @@
   }
   .navbar-menu ul {
     display: flex;
-    gap: 2.67rem;
+    gap: 3rem;
     align-items: center;
     justify-content: flex-end;
-    margin-bottom: 1rem;
+    margin-bottom: 2.4rem;
+  }
+  .navbar-menu li {
+    margin-bottom: 0;
   }
   .navbar-menu ul a:hover {
     color: rgba(255, 255, 255, 1);
