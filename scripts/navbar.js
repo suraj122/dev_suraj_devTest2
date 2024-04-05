@@ -5,10 +5,14 @@ let isMenuVisible = true;
 // Clicking will show menu or hide it
 menuIcon.addEventListener("click", () => {
   if (isMenuVisible) {
-    navMenu.style.display = "inline-block";
+    // navMenu.style.display = "inline-block";
+
+    navMenu.style.height = "144px";
+    // navMenu.style.opacity = "1";
     isMenuVisible = false;
   } else {
-    navMenu.style.display = "none";
+    navMenu.style.height = "0";
+    // navMenu.style.opacity = "0";
     isMenuVisible = true;
   }
 });

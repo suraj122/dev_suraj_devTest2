@@ -1,7 +1,7 @@
 .slider-wrapper {
   overflow: hidden;
-  margin-top: -4rem;
-  padding-top: 3rem;
+  margin-top: -6rem;
+  padding-top: 6rem;
   cursor: grab;
 }
 .slider-list {
@@ -47,10 +47,10 @@
 }
 
 .story-author {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   display: block;
   font-weight: 700;
-  margin-top: 2.167rem;
+  margin: 2.6rem 0 1.4rem 0;
 }
 blockquote {
   font-style: italic;
@@ -62,19 +62,19 @@ blockquote {
   padding: 0 3rem 3rem 3rem;
 }
 .story-author-avatar {
-  width: 15rem;
-  height: 15rem;
+  width: 18rem;
+  height: 18rem;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   box-shadow: var(--drop-shadow);
-  margin-top: -3rem;
+  margin-top: -6rem;
 }
 .author-story {
   background-color: var(--gradient-bg);
   position: relative;
 }
 .slider-navigation {
-  margin-top: 3rem;
+  margin-top: 6.4rem;
 }
 
 @media screen and (min-width: 768px) {

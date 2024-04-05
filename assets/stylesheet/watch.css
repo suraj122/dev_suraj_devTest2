@@ -4,23 +4,26 @@
   color: #fff;
   position: relative;
 }
-
+.video-guide {
+  position: relative;
+  padding: 8rem 1.6rem 4rem 1.6rem;
+  background: linear-gradient(180deg, #305d52 1.26%, #153f38 100%);
+}
 .video-guide-item h4 {
-  font-size: 1.67rem;
+  font-size: 1.8rem;
   font-weight: 700;
 }
 .video-guide ul {
-  padding-left: 2rem;
+  padding-left: 2.4rem;
 }
 .video-guide-item {
   list-style-image: url(../media/icons/checkmark.svg);
   padding-left: 0.5rem;
-  margin: 1rem 0;
+  margin: 1.6rem 0;
 }
 .video-guide-item p {
   color: rgba(255, 255, 255, 0.8);
   margin-top: 0.67rem;
-  font-size: 1.167rem;
 }
 
 .watch-video footer {
@@ -28,11 +31,7 @@
   bottom: 3rem;
   width: 100%;
 }
-.video-guide {
-  position: relative;
-  padding: 6.67rem 1.5rem 3rem 1.5rem;
-  background: linear-gradient(180deg, #305d52 1.26%, #153f38 100%);
-}
+
 .sm-video-graphic {
   width: 100%;
   position: absolute;

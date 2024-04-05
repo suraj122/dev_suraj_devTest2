@@ -19,17 +19,22 @@
 
 .navbar-menu {
   position: absolute;
-  top: 0;
+  top: 100%;
   left: 0;
   right: 0;
   width: 100%;
-  padding: 6rem 1.5rem 3rem 1.5rem;
-  background: linear-gradient(180deg, #022c24 0%, rgba(4, 49, 39, 0.9) 100%);
+  padding: 0 1.6rem;
+  background: var(--gradient-bg);
   z-index: 1000;
   color: #fff;
+  box-shadow: var(--drop-shadow);
+  height: 0;
+  /* opacity: 0; */
+  overflow: hidden;
+  transition: all 250ms ease-in-out;
 }
 .navbar-menu li {
-  margin-bottom: 1.5rem;
+  margin: 1.8rem 0;
 }
 .navbar-menu a {
   color: rgba(255, 255, 255, 0.7);
