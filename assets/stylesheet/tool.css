@@ -86,10 +86,17 @@
 
 @media screen and (min-width: 768px) {
   .tools {
-    padding: 8.34rem 0;
+    padding: 10rem 0;
+  }
+  .tools .heading-secondary .line {
+    max-width: 6.8rem;
+    bottom: 2.5rem;
+  }
+  .tools-description {
+    margin-top: 3.2rem;
   }
   .tool-list {
-    margin-top: 5rem;
+    margin-top: 6rem;
   }
   .tool-item {
     margin: 0;

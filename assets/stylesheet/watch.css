@@ -23,7 +23,7 @@
 }
 .video-guide-item p {
   color: rgba(255, 255, 255, 0.8);
-  margin-top: 0.67rem;
+  margin-top: 0.8rem;
 }
 
 .watch-video footer {
@@ -36,7 +36,7 @@
   width: 100%;
   position: absolute;
   left: 0;
-  top: 99%;
+  top: 96%;
 }
 .lg-video-graphic {
   display: none;
@@ -46,11 +46,10 @@
   background: linear-gradient(rgba(25, 77, 68, 0.3), rgba(25, 77, 68, 0.3)),
     url(../media/video-bg.png);
   background-size: cover;
-  /* background-position: 100% 100%; */
 }
 .play-button {
-  width: 10.67rem;
-  height: 10.67rem;
+  width: 12.8rem;
+  height: 12.8rem;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   box-sizing: content-box;
@@ -61,8 +60,8 @@
 }
 .play-button .inner {
   cursor: pointer;
-  width: 8.212rem;
-  height: 8.212rem;
+  width: 9.86rem;
+  height: 9.86rem;
   background: rgba(91, 200, 175, 0.8);
   border-radius: 50%;
   border: 2px solid #fff;
@@ -108,19 +107,28 @@
     gap: 0;
   }
   .video-guide {
-    padding: 6.67rem 4.8rem 2rem 4.8rem;
+    padding: 10rem 2.4rem 2rem 2.4rem;
+  }
+  .video-guide-item {
+    margin: 2.4rem 0;
   }
   .video-guide-item h4 {
-    font-size: 2rem;
+    font-size: 2.4rem;
   }
   .video-guide-item p {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   .play-video {
-    padding: 2rem 4.8rem 30rem 0;
+    padding: 2rem 4.8rem 32rem 0;
   }
   .play-button {
-    transform: translateY(-0%);
+    width: 20rem;
+    height: 20rem;
+    transform: translateY(-20%);
+  }
+  .play-button .inner {
+    width: 15.4rem;
+    height: 15.4rem;
   }
 }
 @media screen and (min-width: 1024px) {
