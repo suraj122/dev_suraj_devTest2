@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.tagName === "LI") {
       country.value = e.target.innerText;
       countryList.style.display = "none";
+      country.previousElementSibling.classList.add("focused-label");
       validateField(country);
     }
   });
@@ -67,7 +68,18 @@ document.addEventListener("DOMContentLoaded", () => {
     input.classList.remove("invalid-field");
   };
 
+  const validateEmail = (emailInput) => {
+    const emailValue = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(emailValue);
+  };
+
   const validateField = (input) => {
+    if (input === email && !validateEmail(input)) {
+      showError(input, "Please enter a valid email address");
+      return false;
+    }
+
     if (input.value.trim() === "") {
       showError(
         input,
@@ -75,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       return false;
     }
+
     clearError(input);
     return true;
   };
@@ -99,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     input.addEventListener("blur", () => {
-      if (input.value.trim() === "") {
+      if (input.value.trim() === "" && input !== country) {
         input.previousElementSibling.classList.remove("focused-label");
       }
       validateField(input);
