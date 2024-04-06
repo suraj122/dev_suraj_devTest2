@@ -9,7 +9,7 @@
   position: absolute;
   height: 1px;
   border: 1px solid rgba(234, 234, 234, 1);
-  width: 14.4rem;
+  width: 20%;
   right: 0;
   bottom: 1.8rem;
 }
@@ -94,7 +94,6 @@
     padding: 10rem 0;
   }
   .tools .heading-secondary .line {
-    width: 6.8rem;
     bottom: 2.5rem;
   }
   .tools-description {
@@ -115,7 +114,7 @@
     margin-top: 3.6rem;
   }
   .tools .heading-secondary .line {
-    width: 48.2rem;
+    width: 30%;
   }
   .tools-description {
     margin-top: 0rem;

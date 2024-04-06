@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     if (validateForm()) {
-      form.submit();
+      window.location.href = "thankYou.html";
     } else {
       // If form is invalid, focus on the first invalid input
       const firstInvalidInput = form.querySelector(".invalid");
